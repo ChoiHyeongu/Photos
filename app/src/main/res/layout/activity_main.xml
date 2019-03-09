@@ -7,45 +7,29 @@
     android:background="@android:color/white"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:orientation="vertical"
+
+    <GridView
+        android:id="@+id/main_gallery"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:gravity="center"
+        android:numColumns="4" />
 
-        <GridView
-            android:layout_weight="1"
-            android:id="@+id/main_gallery"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="?attr/actionBarSize"
-            android:gravity="center"
-            android:numColumns="4" />
+    <include
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="438dp"
+        layout="@layout/view_memorial" />
 
-        <include
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            layout="@layout/view_status"/>
-
-        <include
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_height="0dp"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            layout="@layout/thumbnail"/>
-
-
-    </LinearLayout>
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:background="@android:color/transparent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent">
 
         <include layout="@layout/custom_toolbar" />
+
         <include layout="@layout/custom_searcbar" />
     </android.support.design.widget.AppBarLayout>
 

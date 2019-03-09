@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/thum_square"
+        android:background="@drawable/round_square"
+        android:layout_width="156dp"
+        android:layout_height="156dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/sample" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:gravity="left">
+
+        <TextView
+            android:id="@+id/thum_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="-0.02"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            tools:text="즐겨찾는 사진" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/thum_category"
+            android:letterSpacing="-0.02"
+            android:textColor="#80000000"
+            android:textSize="12sp"
+            tools:text="2월 11일 오후 5:08" />
+    </RelativeLayout>
+</LinearLayout>

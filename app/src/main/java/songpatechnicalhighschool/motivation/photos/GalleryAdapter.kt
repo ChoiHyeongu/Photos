@@ -1,12 +1,18 @@
 package songpatechnicalhighschool.motivation.photos
 
+import android.app.Activity
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.row_gallery.view.*
 import java.util.*
+import android.R.attr.radius
+import com.bumptech.glide.request.RequestOptions.bitmapTransform
+
+
 
 class GalleryAdapter : BaseAdapter {
 
@@ -23,7 +29,7 @@ class GalleryAdapter : BaseAdapter {
 
         var inflator = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         var galleryCell = inflator.inflate(R.layout.row_gallery, null)
-        galleryCell.imageView.setImageResource(image.image)
+        galleryCell.imageView.setImageBitmap(image.image)
 
         return galleryCell
     }

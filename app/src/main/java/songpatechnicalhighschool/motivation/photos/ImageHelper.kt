@@ -9,7 +9,7 @@ class ImageHelper {
         val output = Bitmap.createBitmap(bitmap.width, bitmap.height, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(output)
 
-        val color = 0xff424242 as Int
+        //val color = 0xff424242
         val paint = Paint()
         val rect = Rect(0, 0, bitmap.width, bitmap.height)
         val rectF = RectF(rect)
@@ -17,7 +17,7 @@ class ImageHelper {
 
         paint.isAntiAlias = true
         canvas.drawARGB(0, 0, 0, 0)
-        paint.color = color
+        //  paint.color = color as Int
         canvas.drawRoundRect(rectF, roundPx, roundPx, paint)
 
         paint.xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)

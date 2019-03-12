@@ -6,6 +6,10 @@ import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.Transformation
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.custom_searcbar.*
 import kotlinx.android.synthetic.main.horizontal_thumbnail.*
@@ -34,10 +38,19 @@ class MainActivity : AppCompatActivity() {
         }
         galleryAdapter = GalleryAdapter(imageList, this)
         main_gallery.adapter = galleryAdapter
+
+        setImageRoundCorner(image)
     }
 
     fun setImageRoundCorner(bitmapImg: Bitmap) {
-        Glide.with(this).
-                load(bitmapImg)
+        Glide.with(this)
+                .load(bitmapImg)
+                .apply(RequestOptions().transform(CenterCrop(), RoundedCorners(10)))
+                .into(thum_horizontal)
+
+        Glide.with(this)
+                .load(bitmapImg)
+                .apply(RequestOptions().transform(CenterCrop(), RoundedCorners(10)))
+                .into(thum_square_image)
     }
 }

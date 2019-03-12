@@ -8,12 +8,15 @@
 
 
     <ImageView
+        android:id="@+id/thum_square_image"
+        android:layout_gravity="center_horizontal"
         android:layout_width="156dp"
         android:layout_height="156dp"
         android:scaleType="centerCrop"
         android:src="@mipmap/sample" />
 
     <RelativeLayout
+        android:layout_marginLeft="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="9dp"

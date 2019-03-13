@@ -7,21 +7,15 @@
     android:background="@android:color/white"
     tools:context=".MainActivity">
 
-
     <GridView
-        android:id="@+id/main_gallery"
+        android:id="@+id/main_album"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
         android:gravity="center"
         android:numColumns="4" />
 
-    <include
-        android:layout_gravity="bottom"
-        android:layout_width="match_parent"
-        android:layout_height="438dp"
-        layout="@layout/view_memorial" />
-
+    <include layout="@layout/view_memorial"/>
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

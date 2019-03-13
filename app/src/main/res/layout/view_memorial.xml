@@ -1,136 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="438dp"
+    android:layout_gravity="bottom"
     android:background="@android:color/white"
     android:orientation="vertical"
     android:scrollbars="vertical">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <include layout="@layout/status_left"/>
+
+    <GridView
+        android:id="@+id/memorial_album"
+        android:numColumns="2"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+    </GridView>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <include layout="@layout/horizontal_thumbnail" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginRight="16dp"
-                android:orientation="horizontal">
-
-                <include
-                    layout="@layout/square_thumbnail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-                <include
-                    layout="@layout/square_thumbnail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="1" />
-
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginRight="16dp"
-                android:orientation="horizontal">
-
-                <include
-                    layout="@layout/square_thumbnail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-                <include
-                    layout="@layout/square_thumbnail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="1" />
-
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginRight="16dp"
-                android:orientation="horizontal">
-
-                <include
-                    layout="@layout/square_thumbnail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-                <include
-                    layout="@layout/square_thumbnail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="1" />
-
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginRight="16dp"
-                android:orientation="horizontal">
-
-                <include
-                    layout="@layout/square_thumbnail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-                <include
-                    layout="@layout/square_thumbnail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="1" />
-
-
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
-</android.support.v4.widget.NestedScrollView>
+</LinearLayout>

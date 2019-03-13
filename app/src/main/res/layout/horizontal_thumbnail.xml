@@ -14,13 +14,13 @@
         android:layout_width="match_parent"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        layout="@layout/view_status"/>
+        layout="@layout/status_left"/>
 
     <ImageView
         android:id="@+id/thum_horizontal"
         android:layout_width="match_parent"
         android:layout_height="156dp"
-        android:background="@drawable/round_square"
+        android:background="@drawable/status_activate"
         android:scaleType="centerCrop"
         android:src="@mipmap/sample" />
 

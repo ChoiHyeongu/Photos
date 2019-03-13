@@ -1,37 +1,55 @@
 package songpatechnicalhighschool.motivation.photos
 
-import android.app.Activity
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.row_gallery.view.*
+import kotlinx.android.synthetic.main.row_main_gallery.view.*
+import kotlinx.android.synthetic.main.row_memorial_gallery.view.*
 import java.util.*
-import android.R.attr.radius
-import com.bumptech.glide.request.RequestOptions.bitmapTransform
-
 
 
 class GalleryAdapter : BaseAdapter {
 
     var imageList = ArrayList<Image>()
     var context: Context? = null
+    var opt: Int = 0
 
-    constructor(imageList: ArrayList<Image>, context: Context?) : super() {
+    constructor(imageList: ArrayList<Image>, context: Context?, opt: Int) : super() {
         this.imageList = imageList
         this.context = context
+        this.opt = opt
     }
+
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val image = this.imageList[position]
 
-        var inflator = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        var galleryCell = inflator.inflate(R.layout.row_gallery, null)
-        galleryCell.imageView.setImageBitmap(image.image)
+        when (opt) {
+            0 -> {
+                var inflator = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+                var galleryCell = inflator.inflate(R.layout.row_main_gallery, null)
+                galleryCell.imageView.setImageBitmap(image.image)
 
-        return galleryCell
+                return galleryCell
+            }
+            1 -> {
+                var inflator = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+                var galleryCell = inflator.inflate(R.layout.row_memorial_gallery, null)
+                galleryCell.thum_square_image.setImageBitmap(image.image)
+
+                return galleryCell
+            }
+
+            else -> {
+                var inflator = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+                var galleryCell = inflator.inflate(R.layout.row_main_gallery, null)
+                galleryCell.imageView.setImageBitmap(image.image)
+
+                return galleryCell
+            }
+        }
     }
 
     override fun getItem(position: Int): Any {
@@ -46,7 +64,5 @@ class GalleryAdapter : BaseAdapter {
         return imageList.size
     }
 
-    fun getImageInfo() {
 
-    }
 }

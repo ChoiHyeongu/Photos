@@ -1,10 +1,13 @@
 package songpatechnicalhighschool.motivation.photos
 
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
@@ -15,6 +18,7 @@ import kotlinx.android.synthetic.main.horizontal_thumbnail.*
 import kotlinx.android.synthetic.main.row_memorial_gallery.*
 import kotlinx.android.synthetic.main.view_memorial.*
 import java.util.*
+import java.util.jar.Manifest
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,9 +31,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            main_album.isNestedScrollingEnabled = true
-        }
+        getPermissions()
+
+        main_album.isNestedScrollingEnabled = true
+
+        val image = Image()
+        image.getAllImages(this)
 
         initGalleries()
     }
@@ -49,12 +56,12 @@ class MainActivity : AppCompatActivity() {
                 .into(squareImageView)
     }
 
-    fun initGalleries(){
+    fun initGalleries() {
         initMainImageList()
         initMemorialImageList()
     }
 
-    fun initMainImageList(){
+    fun initMainImageList() {
 
         val image = BitmapFactory.decodeResource(resources, R.mipmap.sample)
 
@@ -65,10 +72,9 @@ class MainActivity : AppCompatActivity() {
         main_album.adapter = mainGalleryAdapter
     }
 
-    fun initMemorialImageList(){
+    fun initMemorialImageList() {
 
         val image = BitmapFactory.decodeResource(resources, R.mipmap.sample)
-        //setImageRoundCorner(image)
 
         for (i in 1..30) {
             memorialImageList.add(Image(20190306, image, "place"))
@@ -76,5 +82,17 @@ class MainActivity : AppCompatActivity() {
 
         memorialGalleryAdapter = GalleryAdapter(memorialImageList, this, 1)
         memorial_album.adapter = memorialGalleryAdapter
+    }
+
+    fun getPermissions(){
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.READ_EXTERNAL_STORAGE)) {
+
+            } else {
+                ActivityCompat.requestPermissions(this,
+                        arrayOf( android.Manifest.permission.READ_EXTERNAL_STORAGE),
+                        1)
+            }
+        }
     }
 }
